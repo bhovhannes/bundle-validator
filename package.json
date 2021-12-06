@@ -1,0 +1,30 @@
+{
+  "name": "bundle-validator",
+  "version": "0.0.0",
+  "scripts": {},
+  "description": "A tool for validating minified bundle content",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bhovhannes/bundle-validator.git"
+  },
+  "author": "Hovhannes Babayan <bhovhannes@gmail.com>",
+  "contributors": [
+    "Hovhannes Babayan <bhovhannes@gmail.com>",
+    "Amy Zhao <azhao@adobe.com>"
+  ],
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/bhovhannes/bundle-validator/issues"
+  },
+  "homepage": "https://github.com/bhovhannes/bundle-validator#readme",
+  "devDependencies": {
+    "@arkweid/lefthook": "0.7.6",
+    "@bhovhannes/shared-config": "0.0.1",
+    "@nrwl/tao": "13.2.3",
+    "@nrwl/cli": "13.2.3",
+    "@nrwl/workspace": "13.2.3",
+    "@types/node": "14.14.33",
+    "typescript": "~4.4.3",
+    "prettier": "2.3.2"
+  }
+}
