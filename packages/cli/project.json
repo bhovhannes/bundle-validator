@@ -1,0 +1,10 @@
+{
+  "targets": {
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "options": {
+        "jestConfig": "test/jest.config.js"
+      }
+    }
+  }
+}

@@ -2,9 +2,13 @@
   "name": "bundle-validator",
   "version": "1.0.0",
   "description": "A tool for validating minified bundle content",
-  "main": ".prettierrc.js",
+  "main": "./src/lib.js",
+  "bin": {
+    "bundle-validator": "./src/main.js",
+    "bv": "./src/main.js"
+  },
   "scripts": {
-    "test": "echo \"Error: no test specified\"",
+    "test": "jest -c ./test/jest.config.js",
     "build": "",
     "publish": ""
   },
@@ -33,5 +37,9 @@
     "commander": "8.3.0",
     "kleur": "4.1.4",
     "loglevel": "1.8.0"
+  },
+  "devDependencies": {
+    "@jest/globals": "27.4.2",
+    "pkg-dir": "5.0.0"
   }
 }

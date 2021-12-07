@@ -4,3 +4,7 @@ async function check(args) {
   console.log('pattern=', pattern)
   console.log('traces=', traces)
 }
+
+module.exports = {
+  check
+}

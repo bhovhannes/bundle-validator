@@ -37,4 +37,6 @@ logger.methodFactory = function (methodName, logLevel, loggerName) {
 logger.setDefaultLevel(logLevel)
 logger.setLevel(logger.getLevel()) //apply plugin
 
-export { logger }
+module.exports = {
+  logger
+}

@@ -1,12 +1,16 @@
-import { Command } from 'commander'
-import { checkCommand } from './commands/checkCommand.js'
+const { Command } = require('commander')
+const { checkCommand } = require('./commands/checkCommand.js')
 
 const pkg = require('../../package.json')
 
-export function getProgram() {
+function getProgram() {
   const program = new Command()
   program.version(pkg.version)
   program.description(pkg.description)
   program.addCommand(checkCommand)
   return program
+}
+
+module.exports = {
+  getProgram
 }

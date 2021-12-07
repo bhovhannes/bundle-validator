@@ -1,8 +1,12 @@
 {
-  "name": "bundle-validator",
+  "name": "bundle-validator-monorepo",
   "version": "0.0.0",
-  "scripts": {},
-  "description": "A tool for validating minified bundle content",
+  "private": true,
+  "description": "A monorepo for packages related to validating minified bundle content",
+  "packageManager": "yarn@3.1.1",
+  "workspaces": [
+    "packages/*"
+  ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/bhovhannes/bundle-validator.git"

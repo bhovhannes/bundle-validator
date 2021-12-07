@@ -1,4 +1,4 @@
-import { logger } from './logger.js'
+const { logger } = require('./logger.js')
 
 class LoggedError extends Error {
   constructor(message) {
