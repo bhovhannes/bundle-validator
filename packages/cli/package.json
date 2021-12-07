@@ -9,6 +9,7 @@
   },
   "scripts": {
     "test": "jest -c ./test/jest.config.js",
+    "format": "prettier --write '**/*.{ts,tsx,js,jsx,css,md,yml}'",
     "build": "",
     "publish": ""
   },
@@ -40,6 +41,7 @@
   },
   "devDependencies": {
     "@jest/globals": "27.4.2",
+    "jest": "27.4.3",
     "pkg-dir": "5.0.0"
   }
 }

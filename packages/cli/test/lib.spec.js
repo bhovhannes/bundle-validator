@@ -1,8 +1,8 @@
 const { describe, it, expect } = require('@jest/globals')
-const lib = require('../lib.js')
+const lib = require('../src/lib.js')
 
 describe(`lib`, function () {
   it('exports `check` method', () => {
-    expect(lib.check).toBe(expect.any(Function))
+    expect(typeof lib.check).toBe('function')
   })
 })
