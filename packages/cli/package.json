@@ -1,0 +1,47 @@
+{
+  "name": "bundle-validator",
+  "version": "1.0.0",
+  "description": "A tool for validating minified bundle content",
+  "main": "./src/lib.js",
+  "bin": {
+    "bundle-validator": "./src/main.js",
+    "bv": "./src/main.js"
+  },
+  "scripts": {
+    "test": "jest -c ./test/jest.config.js",
+    "format": "prettier --write '**/*.{ts,tsx,js,jsx,css,md,yml}'",
+    "build": "",
+    "publish": ""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bhovhannes/bundle-validator.git"
+  },
+  "keywords": [
+    "validation",
+    "minified",
+    "check",
+    "bundle",
+    "cli"
+  ],
+  "author": "Hovhannes Babayan <bhovhannes@gmail.com>",
+  "contributors": [
+    "Hovhannes Babayan <bhovhannes@gmail.com>",
+    "Amy Zhao <azhao@adobe.com>"
+  ],
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/bhovhannes/bundle-validator/issues"
+  },
+  "homepage": "https://github.com/bhovhannes/bundle-validator#readme",
+  "dependencies": {
+    "commander": "8.3.0",
+    "kleur": "4.1.4",
+    "loglevel": "1.8.0"
+  },
+  "devDependencies": {
+    "@jest/globals": "27.4.2",
+    "jest": "27.4.3",
+    "pkg-dir": "5.0.0"
+  }
+}
