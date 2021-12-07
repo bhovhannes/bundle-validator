@@ -1,8 +1,9 @@
+const { listFilesMatchPattern } = require('./fast-glob.js')
+
 async function check(args) {
   const { pattern, traces } = args
-
-  console.log('pattern=', pattern)
-  console.log('traces=', traces)
+  let files = await listFilesMatchPattern(pattern)
+  console.log(files)
 }
 
 module.exports = {
