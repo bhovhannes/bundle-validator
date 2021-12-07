@@ -17,4 +17,4 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
       - run: yarn
-      - run: yarn nx affected --base=HEAD~1 --target=test --parallel --max-parallel=2
+      - run: yarn nx affected --base=main --head=HEAD --target=test --parallel --max-parallel=2
