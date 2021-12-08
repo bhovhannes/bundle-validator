@@ -8,11 +8,10 @@ Anytime the tool is run, it goes through the following stages:
 2. Determines list of files to operate on
 3. Based on effective configuration loads plugins
 4. For each file:
-   1. create a readonly **context** object which will be later shared between plugins
+   1. create a readonly **execution context** object which will be later shared between plugins
    2. store full resolved file path in a context
-   3. store file content in a context
-   4. run each configured plugin passing **context** as an argument
-   5. add plugin result to the final report
+   3. run each configured plugin passing **execution context** as an argument
+   4. add plugin result to the final report
 5. Outputs resulting report
 
 ## Execution context
@@ -24,7 +23,6 @@ Execution context has the following shape:
 ```typescript
 type TExecutionContext = {
   log: (level: 'error' | 'warn' | 'info' | 'debug', messsage: string) => void
-  content: string
   filePath: string
 }
 ```
@@ -32,8 +30,6 @@ type TExecutionContext = {
 Here,
 
 `log` is a function plugins may call in case they want to output something. Having printing function like this abstracted is required for having consistent output format for all plugins.
-
-`content` is a file content.
 
 `filePath` is a full resolved path to the file being processed.
 
