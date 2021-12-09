@@ -4728,6 +4728,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"plugin-bundle-size@workspace:packages/plugin-bundle-size":
+  version: 0.0.0-use.local
+  resolution: "plugin-bundle-size@workspace:packages/plugin-bundle-size"
+  dependencies:
+    "@jest/globals": 27.4.2
+    jest: 27.4.3
+  languageName: unknown
+  linkType: soft
+
 "prelude-ls@npm:^1.2.1":
   version: 1.2.1
   resolution: "prelude-ls@npm:1.2.1"
