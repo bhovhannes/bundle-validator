@@ -17,13 +17,14 @@ async function check(args) {
       const result = await explorer.search()
       if (result == null) {
         logger.error('Default config file not found')
-        process.exit(0)
+        process.exit(1)
       } else {
         logger.debug('Config file found!')
         logger.debug(result)
       }
     } catch (err) {
       logger.error(err)
+      process.exit(1)
     }
   } else {
     explorer
@@ -35,6 +36,7 @@ async function check(args) {
       .catch((error) => {
         logger.error('Failed to load config file ' + configFilePath)
         logger.error(error)
+        process.exit(1)
       })
   }
 }
