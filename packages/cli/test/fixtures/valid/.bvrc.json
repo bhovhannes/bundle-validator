@@ -1,0 +1,3 @@
+{
+  "plugins": [["@bundle_validator/plugin-bundle-size", { "maxSize": "64K" }]]
+}

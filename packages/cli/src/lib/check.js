@@ -1,38 +1,40 @@
 const { listFilesMatchPattern } = require('./fast-glob.js')
 const { cosmiconfig } = require('cosmiconfig')
+const { logger } = require('./logger.js')
 
 async function check(args) {
   const { pattern, configFilePath } = args
   let files = await listFilesMatchPattern(pattern)
-  console.log('Files that match pattern:')
-  console.log(files)
+  logger.debug('List of files that match pattern:\n' + files.join('\r\n'))
 
   const explorer = cosmiconfig('bv')
   if (configFilePath === undefined) {
-    console.log(
+    logger.info(
       'config option not specified, searching for default file path bv.config.js, .bvrc.json, etc.'
     )
-    explorer
-      .search()
-      .then((result) => {
-        console.log('Config:')
-        console.log(result)
-      })
-      .catch((error) => {
-        console.log(error)
-      })
+
+    try {
+      const result = await explorer.search()
+      if (result == null) {
+        logger.error('Default config file not found')
+        process.exit(1)
+      } else {
+        logger.debug('Config file found!')
+        logger.debug(result)
+      }
+    } catch (err) {
+      logger.error(err)
+    }
   } else {
     explorer
       .load(configFilePath)
       .then((result) => {
-        if (result == null) {
-          console.log('config file not found')
-        } else {
-          console.log(result)
-        }
+        logger.debug('Config file found!')
+        logger.debug(result)
       })
       .catch((error) => {
-        console.log(error)
+        logger.error('Failed to load config file ' + configFilePath)
+        logger.error(error)
       })
   }
 }
