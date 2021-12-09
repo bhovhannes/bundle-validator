@@ -4,6 +4,22 @@
 
 A monorepo containing CLI tool for validating minified bundle content and related packages.
 
+## Examples
+
+### Multiple pattern arguments, no config option
+
+```console
+$ npm install -g bundle-validator
+$ LOG_LEVEL=debug bv check "./dist/*.js" "./output/**/*.min.js"
+```
+
+### One pattern argument, config option specified
+
+```console
+$ npm install -g bundle-validator
+$ LOG_LEVEL=debug bv check --config ./tools/bv.config.js "./dist/*.js"
+```
+
 ## Contributors
 
 - Amy Zhao
