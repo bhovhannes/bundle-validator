@@ -27,7 +27,9 @@ describe(`cli`, function () {
     it('exits with code 0 on success (json format)', async () => {
       const result = await runCli([
         'check',
-        join(packageRootDirectory, 'test', 'fixtures', 'valid', 'bundle.js')
+        '*.json',
+        '--config',
+        join(packageRootDirectory, 'test', 'fixtures', 'valid', '.bvrc.json')
       ])
       expect(result.stdout).not.toMatch(/E\d\d\d/)
       expect(result.exitCode).toEqual(0)
