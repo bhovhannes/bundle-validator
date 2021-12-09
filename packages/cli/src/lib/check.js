@@ -17,7 +17,7 @@ async function check(args) {
       const result = await explorer.search()
       if (result == null) {
         logger.error('Default config file not found')
-        process.exit(1)
+        process.exit(0)
       } else {
         logger.debug('Config file found!')
         logger.debug(result)
