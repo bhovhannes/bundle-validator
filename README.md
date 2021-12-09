@@ -6,11 +6,13 @@ A monorepo containing CLI tool for validating minified bundle content and relate
 
 ## Examples
 
+### Multiple pattern arguments, no config option
+
 ```console
-azhao@Amys-MBP bundle-validator % node packages/cli/src/main.js check "*.json" "**/*.spec.js"
+azhao@Amys-MBP bundle-validator % node packages/cli/src/main.js check "*.json" "**/bv.config.js"
 Pattern argument:
-[ '*.json', '**/*.spec.js' ]
-Plugin options:
+[ '*.json', '**/bv.config.js' ]
+Config file path option:
 undefined
 Files that match pattern:
 [
@@ -18,38 +20,31 @@ Files that match pattern:
   'package.json',
   'tsconfig.base.json',
   'workspace.json',
-  'packages/cli/test/cli.spec.js',
-  'packages/cli/test/lib.spec.js',
-  'node_modules/bundle-validator/test/cli.spec.js',
-  'node_modules/bundle-validator/test/lib.spec.js',
-  'node_modules/json-schema-traverse/spec/index.spec.js',
-  'node_modules/rxjs-for-await/dist/cjs/__tests__/index.spec.js',
-  'node_modules/rxjs-for-await/dist/esm/__tests__/index.spec.js',
-  'node_modules/table/node_modules/json-schema-traverse/spec/index.spec.js'
+  'packages/cli/test/bv.config.js',
+  'node_modules/bundle-validator/test/bv.config.js'
 ]
+config option not specified, searching for default file path bv.config.js, .bvrc.json, etc.
+Config:
+{
+  config: { plugins: [ 'plugin1', 'plugin2', 'plugin3' ] },
+  filepath: '/Users/azhao/Documents/bundle-validator/.bvrc.json'
+}
 ```
 
+### One pattern argument, config option
+
 ```console
-azhao@Amys-MBP bundle-validator % node packages/cli/src/main.js check "*.json" "**/*.spec.js" --plugin plugin1 plugin2 plugin3
+azhao@Amys-MBP bundle-validator % node packages/cli/src/main.js check "*.json" --config packages/cli/test/bv.config.js
 Pattern argument:
-[ '*.json', '**/*.spec.js' ]
-Plugin options:
-[ 'plugin1', 'plugin2', 'plugin3' ]
+[ '*.json' ]
+Config file path option:
+packages/cli/test/bv.config.js
 Files that match pattern:
-[
-  'nx.json',
-  'package.json',
-  'tsconfig.base.json',
-  'workspace.json',
-  'packages/cli/test/cli.spec.js',
-  'packages/cli/test/lib.spec.js',
-  'node_modules/bundle-validator/test/cli.spec.js',
-  'node_modules/bundle-validator/test/lib.spec.js',
-  'node_modules/json-schema-traverse/spec/index.spec.js',
-  'node_modules/rxjs-for-await/dist/cjs/__tests__/index.spec.js',
-  'node_modules/rxjs-for-await/dist/esm/__tests__/index.spec.js',
-  'node_modules/table/node_modules/json-schema-traverse/spec/index.spec.js'
-]
+[ 'nx.json', 'package.json', 'tsconfig.base.json', 'workspace.json' ]
+{
+  config: { plugins: [ 'plugin1', 'p2', 'p3', 'p4' ] },
+  filepath: '/Users/azhao/Documents/bundle-validator/packages/cli/test/bv.config.js'
+}
 ```
 
 ## Contributors

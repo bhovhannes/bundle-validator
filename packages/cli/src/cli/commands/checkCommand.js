@@ -8,15 +8,13 @@ checkCommand.option(
   '-p, --plugin <names...>',
   'the names of the plugins that contain the checks to run'
 )
+checkCommand.option('-c, --config <path>', 'the path to the configuration file')
 checkCommand.action(async function (pattern, options) {
-  //pattern = patternArgument.split(',').map((item) => item.trim())
   console.log('Pattern argument:')
   console.log(pattern)
-  console.log('Plugin options:')
-  console.log(options.plugin)
-  await check({
-    pattern
-  })
+  console.log('Config file path option:')
+  console.log(options.config)
+  await check({ pattern, configFilePath: options.config })
 })
 
 module.exports = {
