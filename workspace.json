@@ -1,6 +1,9 @@
 {
   "version": 2,
   "projects": {
+    "bundle-size": {
+      "root": "packages/bundle-size"
+    },
     "cli": {
       "root": "packages/cli"
     }

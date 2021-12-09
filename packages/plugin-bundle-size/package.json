@@ -1,0 +1,23 @@
+{
+  "name": "plugin-bundle-size",
+  "version": "0.0.0",
+  "description": "A plugin for bundle-validator tool",
+  "main": "./src/index.js",
+  "scripts": {
+    "test": "echo \"No test\" || exit 0",
+    "format": "prettier --write '**/*.{ts,tsx,js,jsx,css,md,yml}'"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bhovhannes/bundle-validator.git"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/bhovhannes/bundle-validator/issues"
+  },
+  "homepage": "https://github.com/bhovhannes/bundle-validator/tree/main/packages/plugin-bundle-size#readme",
+  "devDependencies": {
+    "@jest/globals": "27.4.2",
+    "jest": "27.4.3"
+  }
+}
