@@ -1,0 +1,3 @@
+{
+  "plugins": ["plugin1", ["plugin2", 2], [{}, "plugin3"]]
+}

@@ -34,5 +34,50 @@ describe(`cli`, function () {
       expect(result.stdout).not.toMatch(/E\d\d\d/)
       expect(result.exitCode).toEqual(0)
     })
+
+    it('exits with non-zero exit code if config cannot be found', async () => {
+      const result = await runCli(['check', '*.js'])
+      expect(result.stderr).toMatch(/E003/)
+      expect(result.exitCode).not.toEqual(0)
+    })
+
+    it('exits with non-zero exit code if config cannot be loaded', async () => {
+      const result = await runCli([
+        'check',
+        '*.js',
+        '--config',
+        join(packageRootDirectory, 'test', 'fixtures', 'invalid-configs', 'no-existent-config.json')
+      ])
+      expect(result.stderr).toMatch(/E002/)
+      expect(result.exitCode).not.toEqual(0)
+    })
+
+    it('exits with non-zero exit code if provided config does not match schema', async () => {
+      const result = await runCli([
+        'check',
+        '*.js',
+        '--config',
+        join(packageRootDirectory, 'test', 'fixtures', 'invalid-configs', '.bvrc.json')
+      ])
+      expect(result.stderr).toMatch(/E001/)
+      expect(result.exitCode).not.toEqual(0)
+    })
+
+    it('exits with non-zero exit code if some plugin cannot be loaded', async () => {
+      const result = await runCli([
+        'check',
+        '*.js',
+        '--config',
+        join(
+          packageRootDirectory,
+          'test',
+          'fixtures',
+          'invalid-configs',
+          'non-existent-plugin.bvrc.json'
+        )
+      ])
+      expect(result.stderr).toMatch(/E004/)
+      expect(result.exitCode).not.toEqual(0)
+    })
   })
 })
