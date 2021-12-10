@@ -13,7 +13,7 @@ const { runPlugins } = require('./runPlugins.js')
 
 async function check(args) {
   const { pattern, configFilePath } = args
-  let files = await listFilesMatchPattern(pattern)
+  var files = await listFilesMatchPattern(pattern)
   logger.debug('List of files that match pattern:\n' + files.join('\r\n'))
 
   const { config } = await loadConfig(configFilePath)
