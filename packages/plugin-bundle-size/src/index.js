@@ -16,6 +16,7 @@ function run(executionContext, pluginOptions) {
     if (re.test(maxSizeOption)) {
       let size_threshold = maxSizeOption.match(numRegex)
       let unit = maxSizeOption.match(byteRegex)
+      executionContext.log('debug', `File size ${iec[unit]}${unit}`)
       if (iec[unit] <= size_threshold) {
         var testStatus = 'pass'
       } else {
@@ -26,8 +27,8 @@ function run(executionContext, pluginOptions) {
         iec[unit] +
         unit +
         ' is ' +
-        (testStatus == 'pass' ? 'less than or equal' : 'greater than') +
-        ' to max size ' +
+        (testStatus == 'pass' ? 'less than or equal to' : 'greater than') +
+        ' max size ' +
         maxSizeOption
     } else {
       var testMessage =
@@ -45,6 +46,11 @@ function run(executionContext, pluginOptions) {
   }
 }
 
+function title(pluginOptions) {
+  return `File size should be less than ${pluginOptions.maxSize}`
+}
+
 module.exports = {
-  run
+  run,
+  title
 }
