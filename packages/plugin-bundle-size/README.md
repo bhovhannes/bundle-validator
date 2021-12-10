@@ -12,15 +12,18 @@
    ```
 2. Add this plugin to the `plugins` array of `bundle-validator` config:
 
-   ```json
-   {
-     "plugins": [
-       {
-         "name": "@bundle-validator/plugin-bundle-size",
-         "options": {}
-       }
-     ]
-   }
-   ```
+```json
+{
+  "plugins": [["../../../plugin-bundle-size", { "maxSize": "64KB" }]]
+}
+```
 
 ## Options
+
+### `maxSize` (required)
+
+Threshold that the file's size must be less than or equal to in order to pass.
+
+Format: number + IEC unit (B, KB, MB, GB, TB, PB)
+
+Example: "2342B" for 2342 bytes, "19KB" for 19 kilobytes, etc.
