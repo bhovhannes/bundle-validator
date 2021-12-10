@@ -7,10 +7,10 @@ Anytime the tool is run, it goes through the following stages:
 1. Reads and validates configuration
 2. Determines list of files to operate on
 3. Based on effective configuration loads plugins
-4. For each file:
-   1. create a readonly **execution context** object which will be later shared between plugins
+4. For each plugin:
+   1. create a readonly **execution context** object
    2. store full resolved file path in a context
-   3. run each configured plugin passing **execution context** as an argument
+   3. for each file run plugin passing **execution context** as an argument
    4. add plugin result to the final report
 5. Outputs resulting report
 
@@ -59,16 +59,27 @@ Each plugin is an NPM package with an entry point with the following exports:
 ```typescript
 // plugin.js
 
-function run(executionContext: TExecutionContext, pluginOptions: unknown): TPluginResult {
+function run(
+  executionContext: TExecutionContext,
+  pluginOptions: unknown
+): TPluginResult | Promise<TPluginResult> {
   // plugin code goes here
 }
 
+function title(pluginOptions: unknown): string {
+  // return plugin title to be displayed to user
+}
+
 module.exports = {
-  run
+  run,
+  title
 }
 ```
 
-Here, `run` method takes 2 arguments - first is execution context and second it an options object which is specific to each plugin. `run` method may call `executionContext.log` method to output during plugin execution and should return an object describing plugin result.
+Here, `run` method takes 2 arguments - first is execution context and second it an options object which is specific to each plugin. `run` method may call `executionContext.log` method to output during plugin execution and should return an object describing plugin result.  
+`run` method can be asynchronous. In that case it should return a promise which will resolve with plugin result.
+
+The `title` method is called by bundle validator to retrieve the plugin title tool displays to the user.
 
 Plugin's `package.json` in this case has the following look:
 
