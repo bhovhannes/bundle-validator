@@ -1064,6 +1064,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@types/node@npm:^14.14.28":
+  version: 14.18.0
+  resolution: "@types/node@npm:14.18.0"
+  checksum: b120c26fe5f30bc358e861db8d7e401e419d14bd9dd25c022f3c2ea8b0b429d4c9efd77ad5d6d2a8bde61702a6786fb74d409f1b2cbb61c79133e2a65aab4fb1
+  languageName: node
+  linkType: hard
+
 "@types/parse-json@npm:^4.0.0":
   version: 4.0.0
   resolution: "@types/parse-json@npm:4.0.0"
@@ -2516,6 +2523,15 @@ __metadata:
   dependencies:
     flat-cache: ^3.0.4
   checksum: f49701feaa6314c8127c3c2f6173cfefff17612f5ed2daaafc6da13b5c91fd43e3b2a58fd0d63f9f94478a501b167615931e7200e31485e320f74a33885a9c74
+  languageName: node
+  linkType: hard
+
+"file-sizeof@npm:1.1.0":
+  version: 1.1.0
+  resolution: "file-sizeof@npm:1.1.0"
+  dependencies:
+    "@types/node": ^14.14.28
+  checksum: 1328d742352a2543513145802103044f8a9eca1b20cd6a7493d79aea68e40cca62adebd98de80501d6c8cf20580fdf89243cc36933b75445c0ecfeb20ee396bb
   languageName: node
   linkType: hard
 
@@ -4999,6 +5015,7 @@ __metadata:
   resolution: "plugin-bundle-size@workspace:packages/plugin-bundle-size"
   dependencies:
     "@jest/globals": 27.4.2
+    file-sizeof: 1.1.0
     jest: 27.4.3
   languageName: unknown
   linkType: soft
