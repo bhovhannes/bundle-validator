@@ -1,0 +1,6 @@
+{
+  "name": "plugin_file_name_length_checker",
+  "private": true,
+  "description": "A plugin for bundle-validator tool",
+  "main": "./index.js"
+}

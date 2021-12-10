@@ -9,6 +9,7 @@ const {
   cannotFindConfigFile,
   cannotLoadPlugin
 } = require('./errors.js')
+const { runPlugins } = require('./runPlugins.js')
 
 async function check(args) {
   const { pattern, configFilePath } = args
@@ -22,8 +23,7 @@ async function check(args) {
   normalizeConfig(config)
   logger.debug('Effective config:', config)
 
-  const plugins = await loadPlugins(config)
-  // TODO  proceed with running plugins
+  await runPlugins(files, config)
 }
 
 async function loadConfig(configFilePath) {
@@ -72,21 +72,6 @@ function normalizeConfig(config) {
       plugins[i].push({})
     }
   }
-}
-
-async function loadPlugins(normalizedConfig) {
-  return normalizedConfig.plugins.map(([pluginName, pluginOptions]) => {
-    try {
-      const plugin = require(pluginName)
-      return {
-        plugin,
-        pluginName,
-        options: pluginOptions
-      }
-    } catch (e) {
-      throw new LoggedError(`${cannotLoadPlugin}\n${e}`)
-    }
-  })
 }
 
 module.exports = {

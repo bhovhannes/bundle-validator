@@ -2,6 +2,14 @@
   "type": "object",
   "required": ["plugins"],
   "properties": {
+    "reporter": {
+      "description": "The name of Mocha reporter to use. Defaults to 'spec'.",
+      "type": "string"
+    },
+    "reporterOptions": {
+      "description": "Options for the Mocha reporter.",
+      "type": "object"
+    },
     "plugins": {
       "description": "List of plugins to load and use",
       "type": "array",

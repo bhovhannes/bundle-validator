@@ -35,6 +35,21 @@ describe(`cli`, function () {
       expect(result.exitCode).toEqual(0)
     })
 
+    it('outputs a valid TAP report', async () => {
+      const result = await runCli([
+        'check',
+        join(packageRootDirectory, 'test', 'fixtures', 'tap-report', '*.js'),
+        '--config',
+        join(packageRootDirectory, 'test', 'fixtures', 'tap-report', '.bvrc.json')
+      ])
+      expect(result.stdout).toContain('# tests 3')
+      expect(result.stdout).toContain('# pass 2')
+      expect(result.stdout).toContain('# fail 1')
+      expect(result.stdout).toContain('1..3')
+      expect(result.stdout).toContain('"i-am-a-long-file.js" contains more than 8 characters')
+      expect(result.exitCode).not.toEqual(0)
+    })
+
     it('exits with non-zero exit code if config cannot be found', async () => {
       const result = await runCli(['check', '*.js'])
       expect(result.stderr).toMatch(/E003/)
