@@ -18,8 +18,10 @@ function run(executionContext, pluginOptions) {
       if (fileSize <= maxSizeInBytes) {
         testStatus = 'pass'
       }
-      testMessage = 'File size ' + xbytes(fileSize, { prefixIndex: parsedOption.prefixIndex })
-      ' is ' +
+      testMessage =
+        'File size ' +
+        xbytes(fileSize, { prefixIndex: parsedOption.prefixIndex }) +
+        ' is ' +
         (testStatus == 'pass' ? 'less than or equal to' : 'greater than') +
         ' max size ' +
         xbytes(maxSizeInBytes, { prefixIndex: parsedOption.prefixIndex })
