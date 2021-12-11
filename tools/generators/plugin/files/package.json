@@ -1,7 +1,7 @@
 {
   "name": "@bundle-validator/<%= name %>",
   "version": "0.0.0",
-  "description": "A plugin for bundle-validator tool",
+  "description": "A plugin for bundle validator",
   "main": "./src/index.js",
   "scripts": {
     "test": "jest -c ./test/jest.config.js",
@@ -16,5 +16,8 @@
     "url": "https://github.com/bhovhannes/bundle-validator/issues"
   },
   "homepage": "https://github.com/bhovhannes/bundle-validator/tree/main/packages/<%= name %>#readme",
-  "devDependencies": {}
+  "devDependencies": {
+    "@jest/globals": "27.4.2",
+    "jest": "27.4.3"
+  }
 }

@@ -430,6 +430,57 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@bundle-validator/cli@workspace:packages/cli":
+  version: 0.0.0-use.local
+  resolution: "@bundle-validator/cli@workspace:packages/cli"
+  dependencies:
+    "@jest/globals": 27.4.2
+    ajv: 8.8.2
+    commander: 8.3.0
+    cosmiconfig: 7.0.1
+    fast-glob: 3.2.7
+    jest: 27.4.3
+    kleur: 4.1.4
+    loglevel: 1.8.0
+    mocha: 9.1.3
+    pkg-dir: 5.0.0
+  bin:
+    bv: ./src/main.js
+  languageName: unknown
+  linkType: soft
+
+"@bundle-validator/plugin-bundle-size@*, @bundle-validator/plugin-bundle-size@workspace:packages/plugin-bundle-size":
+  version: 0.0.0-use.local
+  resolution: "@bundle-validator/plugin-bundle-size@workspace:packages/plugin-bundle-size"
+  dependencies:
+    "@jest/globals": 27.4.2
+    jest: 27.4.3
+    xbytes: 1.7.0
+  languageName: unknown
+  linkType: soft
+
+"@bundle-validator/test__bundle-size@workspace:packages/cli/test/fixtures/plugin-bundle-size":
+  version: 0.0.0-use.local
+  resolution: "@bundle-validator/test__bundle-size@workspace:packages/cli/test/fixtures/plugin-bundle-size"
+  dependencies:
+    "@bundle-validator/plugin-bundle-size": "*"
+  languageName: unknown
+  linkType: soft
+
+"@bundle-validator/test__tap-report@workspace:packages/cli/test/fixtures/tap-report":
+  version: 0.0.0-use.local
+  resolution: "@bundle-validator/test__tap-report@workspace:packages/cli/test/fixtures/tap-report"
+  dependencies:
+    "@bundle-validator/test_plugin__file_name_length_checker": "workspace:*"
+  languageName: unknown
+  linkType: soft
+
+"@bundle-validator/test_plugin__file_name_length_checker@workspace:*, @bundle-validator/test_plugin__file_name_length_checker@workspace:packages/cli/test/fixtures/plugin_file_name_length_checker":
+  version: 0.0.0-use.local
+  resolution: "@bundle-validator/test_plugin__file_name_length_checker@workspace:packages/cli/test/fixtures/plugin_file_name_length_checker"
+  languageName: unknown
+  linkType: soft
+
 "@commitlint/config-conventional@npm:11.0.0":
   version: 11.0.0
   resolution: "@commitlint/config-conventional@npm:11.0.0"
@@ -1527,26 +1578,6 @@ __metadata:
     "@types/node": 14.14.33
     prettier: 2.3.2
     typescript: ~4.4.3
-  languageName: unknown
-  linkType: soft
-
-"bundle-validator@workspace:packages/cli":
-  version: 0.0.0-use.local
-  resolution: "bundle-validator@workspace:packages/cli"
-  dependencies:
-    "@jest/globals": 27.4.2
-    ajv: 8.8.2
-    commander: 8.3.0
-    cosmiconfig: 7.0.1
-    fast-glob: 3.2.7
-    jest: 27.4.3
-    kleur: 4.1.4
-    loglevel: 1.8.0
-    mocha: 9.1.3
-    pkg-dir: 5.0.0
-  bin:
-    bundle-validator: ./src/main.js
-    bv: ./src/main.js
   languageName: unknown
   linkType: soft
 
@@ -4993,16 +5024,6 @@ __metadata:
   checksum: 9863e3f35132bf99ae1636d31ff1e1e3501251d480336edb1c211133c8d58906bed80f154a1d723652df1fda91e01c7442c2eeaf9dc83157c7ae89087e43c8d6
   languageName: node
   linkType: hard
-
-"plugin-bundle-size@workspace:packages/plugin-bundle-size":
-  version: 0.0.0-use.local
-  resolution: "plugin-bundle-size@workspace:packages/plugin-bundle-size"
-  dependencies:
-    "@jest/globals": 27.4.2
-    jest: 27.4.3
-    xbytes: 1.7.0
-  languageName: unknown
-  linkType: soft
 
 "prelude-ls@npm:^1.2.1":
   version: 1.2.1

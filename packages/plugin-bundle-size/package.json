@@ -1,5 +1,5 @@
 {
-  "name": "plugin-bundle-size",
+  "name": "@bundle-validator/plugin-bundle-size",
   "version": "0.0.0",
   "description": "A plugin for bundle-validator tool",
   "main": "./src/index.js",

@@ -14,7 +14,7 @@
 
    ```json
    {
-     "plugins": [["../../../plugin-bundle-size", { "maxSize": "64KB" }]]
+     "plugins": [["@bundle-validator/plugin-bundle-size", { "maxSize": "64KB" }]]
    }
    ```
 
