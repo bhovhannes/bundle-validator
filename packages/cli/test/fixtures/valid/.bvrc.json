@@ -1,3 +1,4 @@
 {
+  "reporter": "tap",
   "plugins": [["../../../plugin-bundle-size", { "maxSize": "64KB" }]]
 }
