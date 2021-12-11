@@ -1,11 +1,21 @@
 {
   "version": 2,
   "projects": {
-    "bundle-size": {
-      "root": "packages/bundle-size"
+    "plugin-bundle-size": {
+      "root": "packages/plugin-bundle-size",
+      "targets": {
+        "version": {
+          "executor": "@jscutlery/semver:version"
+        }
+      }
     },
     "cli": {
-      "root": "packages/cli"
+      "root": "packages/cli",
+      "targets": {
+        "version": {
+          "executor": "@jscutlery/semver:version"
+        }
+      }
     }
   }
 }
