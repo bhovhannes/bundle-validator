@@ -20,7 +20,7 @@ jobs:
         with:
           node-version: '14'
       - run: yarn
-      - run: yarn nx affected --target=test --parallel --max-parallel=2
+      - run: yarn test
   pr:
     runs-on: ubuntu-latest
     if: ${{ github.event_name == 'pull_request' }}
@@ -35,4 +35,4 @@ jobs:
         with:
           node-version: '14'
       - run: yarn
-      - run: yarn nx affected --target=test --parallel --max-parallel=2
+      - run: yarn test
