@@ -27,7 +27,7 @@ describe(`cli`, function () {
     it('exits with code 0 on success (json format)', async () => {
       const result = await runCli([
         'check',
-        '*.json',
+        join(packageRootDirectory, 'test', 'fixtures', 'valid', '.bvrc.json'),
         '--config',
         join(packageRootDirectory, 'test', 'fixtures', 'valid', '.bvrc.json')
       ])
@@ -93,6 +93,26 @@ describe(`cli`, function () {
       ])
       expect(result.stderr).toMatch(/E004/)
       expect(result.exitCode).not.toEqual(0)
+    })
+
+    it('exits with code 0 on success after running plugin-bundle-size', async () => {
+      const result = await runCli([
+        'check',
+        join(packageRootDirectory, 'test', 'fixtures', 'sample-size-files', 'test'),
+        '--config',
+        join(packageRootDirectory, 'test', 'fixtures', 'valid', '.bundleSizePass.json')
+      ])
+      expect(result.exitCode).toEqual(0)
+    })
+
+    it('exits with code 1 on fail after running plugin-bundle-size', async () => {
+      const result = await runCli([
+        'check',
+        join(packageRootDirectory, 'test', 'fixtures', 'sample-size-files', 'test'),
+        '--config',
+        join(packageRootDirectory, 'test', 'fixtures', 'valid', '.bundleSizeFail.json')
+      ])
+      expect(result.exitCode).toEqual(1)
     })
   })
 })
