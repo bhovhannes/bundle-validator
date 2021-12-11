@@ -18,15 +18,20 @@
    }
    ```
 
-```
-
 ## Options
 
 ### `maxSize` (required)
 
 Threshold that the file's size must be less than or equal to in order to pass.
 
-Format: number + IEC unit (B, KB, MB, GB, TB, PB)
+Format: number (in bytes) or string (that uses units specified here: https://www.npmjs.com/package/xbytes#unitstring)
 
-Example: "2342B" for 2342 bytes, "19KB" for 19 kilobytes, etc.
-```
+Warning: lowercase b will be interpreted as bits, uppercase b will be interpreted as bytes ("10 Kb" will be seen as kilobits, "10 KB" is 10 kilobytes)
+
+Examples:
+
+`"maxSize": "10KB"` (SI units)
+
+`"maxSize": "10 KiB"` (IEC units)
+
+`"maxSize": 10000` (10000 bytes)
