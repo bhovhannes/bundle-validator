@@ -114,5 +114,15 @@ describe(`cli`, function () {
       ])
       expect(result.exitCode).toEqual(1)
     })
+
+    it('exits with code 0 on success after running plugin-bundle-size, maxSize option expressed as a number', async () => {
+      const result = await runCli([
+        'check',
+        join(packageRootDirectory, 'test', 'fixtures', 'sample-size-files', 'test'),
+        '--config',
+        join(packageRootDirectory, 'test', 'fixtures', 'valid', '.bundleSizeNum.json')
+      ])
+      expect(result.exitCode).toEqual(0)
+    })
   })
 })
