@@ -21,6 +21,6 @@
     "jest": "27.4.3"
   },
   "dependencies": {
-    "file-sizeof": "1.1.0"
+    "xbytes": "1.7.0"
   }
 }

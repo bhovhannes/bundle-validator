@@ -1,43 +1,34 @@
-const { sizeof } = require('file-sizeof')
-
-const re = new RegExp('\\d+[kmgtp]?b', 'i')
-const numRegex = /\d+/
-const byteRegex = /[kbmgtp]?b/i
+const xbytes = require('xbytes')
+const fs = require('fs')
 
 function run(executionContext, pluginOptions) {
+  let testStatus = 'fail'
+  let testMessage = ''
   executionContext.log(
     'debug',
     `Executing plugin '@bundle-validator/plugin-bundle-size' for file '${executionContext.filePath}'`
   )
   executionContext.log('debug', pluginOptions)
-  const iec = sizeof.IEC(executionContext.filePath)
+  let fileSize = fs.statSync(executionContext.filePath).size
   if ('maxSize' in pluginOptions) {
     let maxSizeOption = pluginOptions.maxSize
-    if (re.test(maxSizeOption)) {
-      let size_threshold = maxSizeOption.match(numRegex)
-      let unit = maxSizeOption.match(byteRegex)
-      executionContext.log('debug', `File size ${iec[unit]}${unit}`)
-      if (iec[unit] <= size_threshold) {
-        var testStatus = 'pass'
-      } else {
-        var testStatus = 'fail'
+    if (xbytes.isParsable(maxSizeOption)) {
+      let parsedOption = xbytes.parseBytes(maxSizeOption)
+      let maxSizeInBytes = parsedOption.bytes
+      if (fileSize <= maxSizeInBytes) {
+        testStatus = 'pass'
       }
-      var testMessage =
-        'File size ' +
-        iec[unit] +
-        unit +
-        ' is ' +
+      testMessage = 'File size ' + xbytes(fileSize, { prefixIndex: parsedOption.prefixIndex })
+      ' is ' +
         (testStatus == 'pass' ? 'less than or equal to' : 'greater than') +
         ' max size ' +
-        maxSizeOption
+        xbytes(maxSizeInBytes, { prefixIndex: parsedOption.prefixIndex })
     } else {
-      var testMessage =
-        'Plugin option maxSize in wrong format: number + unit (B, KB, MB, GB, TB, PB)'
-      var testStatus = 'fail'
+      testMessage =
+        'Plugin option maxSize in wrong format. Correct format is number (in bytes) or a string (see https://www.npmjs.com/package/xbytes#unitstring for supported units)'
     }
   } else {
-    var testMessage = 'Missing maxSize key in plugin options'
-    var testStatus = 'fail'
+    testMessage = 'Missing maxSize key in plugin options'
   }
 
   return {
