@@ -1,5 +1,13 @@
 # @bundle-validator/plugin-bundle-size
 
+## 0.0.4
+
+### Patch Changes
+
+- Switched to Turborepo
+- Updated dependencies
+  - @bundle-validator/cli@1.0.4
+
 ## 0.0.3
 
 ### Patch Changes

@@ -1,5 +1,11 @@
 # @bundle-validator/cli
 
+## 1.0.4
+
+### Patch Changes
+
+- Switched to Turborepo
+
 ## 1.0.3
 
 ### Patch Changes
