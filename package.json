@@ -37,5 +37,8 @@
     "publish-dry-run": "nx affected --target version --skipRootChangelog --dryRun",
     "publish": "nx affected --target version --skipRootChangelog --skipProjectChangelog --noVerify --trackDeps",
     "test": "nx affected --target=test --parallel --max-parallel=2"
+  },
+  "dependencies": {
+    "@changesets/cli": "^2.18.1"
   }
 }
