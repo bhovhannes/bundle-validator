@@ -6,6 +6,9 @@
   "bin": {
     "bv": "./src/main.js"
   },
+  "publishConfig": {
+    "registry": "http://localhost:4873"
+  },
   "scripts": {
     "test": "jest -c ./test/jest.config.js",
     "format": "prettier --write '**/*.{ts,tsx,js,jsx,css,md,yml}'",

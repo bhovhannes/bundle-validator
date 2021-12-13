@@ -3,6 +3,9 @@
   "version": "0.0.0",
   "description": "A plugin for bundle-validator tool",
   "main": "./src/index.js",
+  "publishConfig": {
+    "registry": "http://localhost:4873"
+  },
   "scripts": {
     "test": "echo \"No test\" || exit 0",
     "format": "prettier --write '**/*.{ts,tsx,js,jsx,css,md,yml}'"
