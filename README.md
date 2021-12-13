@@ -88,6 +88,11 @@ $ npm install -g @bundle-validator/cli
 $ LOG_LEVEL=debug bv check --config ./tools/bv.config.js "./dist/*.js"
 ```
 
+## Contributing
+
+See our [Contributing Guide](./CONTRIBUTING.md).  
+If you want to create a new plugin, please go through [Plugins](./docs/plugins.md).
+
 ## Contributors
 
 - Amy Zhao

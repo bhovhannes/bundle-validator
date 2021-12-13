@@ -1,5 +1,13 @@
 # @bundle-validator/plugin-bundle-size
 
+## 0.0.3
+
+### Patch Changes
+
+- asd
+- Updated dependencies
+  - @bundle-validator/cli@1.0.3
+
 ## 0.0.2
 
 ### Patch Changes

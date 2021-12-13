@@ -1,5 +1,11 @@
 # @bundle-validator/cli
 
+## 1.0.3
+
+### Patch Changes
+
+- asd
+
 ## 1.0.2
 
 ### Patch Changes
