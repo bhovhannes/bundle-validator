@@ -1,4 +1,4 @@
-name: Test
+name: Main
 on:
   push:
     branches:
@@ -8,7 +8,7 @@ on:
 jobs:
   main:
     runs-on: ubuntu-latest
-    if: ${{ github.event_name != 'pull_request' }}
+    if: ${{ github.event_name == 'push' }}
     steps:
       - uses: actions/checkout@v2
         name: Checkout [main]
@@ -20,6 +20,14 @@ jobs:
           node-version: '14'
       - run: yarn
       - run: yarn test
+
+      - name: Create Release Pull Request
+        uses: changesets/action@v1
+        with:
+          version: yarn version
+          commit: 'chore: version packages'
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
   pr:
     runs-on: ubuntu-latest
     if: ${{ github.event_name == 'pull_request' }}
