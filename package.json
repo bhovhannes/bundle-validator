@@ -5,7 +5,8 @@
   "description": "A monorepo for packages related to validating minified bundle content",
   "packageManager": "yarn@3.1.1",
   "workspaces": [
-    "packages/*"
+    "packages/*",
+    "packages/cli/test/fixtures/*"
   ],
   "repository": {
     "type": "git",
@@ -24,11 +25,29 @@
   "devDependencies": {
     "@arkweid/lefthook": "0.7.6",
     "@bhovhannes/shared-config": "0.0.1",
-    "@nrwl/cli": "13.3.0",
-    "@nrwl/tao": "13.3.0",
-    "@nrwl/workspace": "13.3.0",
-    "@types/node": "14.14.33",
+    "@changesets/cli": "^2.18.1",
     "prettier": "2.3.2",
-    "typescript": "~4.4.3"
+    "turbo": "^1.0.6"
+  },
+  "scripts": {
+    "version": "changeset version",
+    "publish": "changeset publish",
+    "test": "turbo run test",
+    "format": "turbo run format"
+  },
+  "turbo": {
+    "npmClient": "yarn",
+    "baseBranch": "origin/main",
+    "pipeline": {
+      "test": {
+        "dependsOn": [
+          "^test"
+        ],
+        "outputs": []
+      },
+      "format": {
+        "outputs": []
+      }
+    }
   }
 }

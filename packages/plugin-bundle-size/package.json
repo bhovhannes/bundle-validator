@@ -1,6 +1,6 @@
 {
-  "name": "plugin-bundle-size",
-  "version": "0.0.0",
+  "name": "@bundle-validator/plugin-bundle-size",
+  "version": "1.0.0",
   "description": "A plugin for bundle-validator tool",
   "main": "./src/index.js",
   "scripts": {
@@ -22,5 +22,8 @@
   },
   "dependencies": {
     "xbytes": "1.7.0"
+  },
+  "peerDependencies": {
+    "@bundle-validator/cli": "^1.0.0"
   }
 }

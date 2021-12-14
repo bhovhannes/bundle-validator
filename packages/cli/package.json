@@ -1,17 +1,14 @@
 {
-  "name": "bundle-validator",
+  "name": "@bundle-validator/cli",
   "version": "1.0.0",
   "description": "A tool for validating minified bundle content",
   "main": "./src/lib.js",
   "bin": {
-    "bundle-validator": "./src/main.js",
     "bv": "./src/main.js"
   },
   "scripts": {
     "test": "jest -c ./test/jest.config.js",
-    "format": "prettier --write '**/*.{ts,tsx,js,jsx,css,md,yml}'",
-    "build": "",
-    "publish": ""
+    "format": "prettier --write '**/*.{ts,tsx,js,jsx,css,md,yml}'"
   },
   "repository": {
     "type": "git",

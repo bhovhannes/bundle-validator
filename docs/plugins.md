@@ -90,12 +90,4 @@ Plugin's `package.json` in this case has the following look:
 }
 ```
 
-All official plugins are published under `@bundle-validator` scope. For example, `@bundle-validator/plugin-check-size`.
-
-## Creating a new plugin
-
-Run `nx` generator named `plugin` to produce a plugin boilerplate and start coding:
-
-```shell
-yarn nx workspace-generator plugin <name>
-```
+All official plugins are published under `@bundle-validator` scope. For example, `@bundle-validator/plugin-bundle-size`.

@@ -1,6 +1,4 @@
 {
   "reporter": "tap",
-  "plugins": [
-    ["../../test/fixtures/tap-report/plugin_file_name_length_checker", { "maxLength": "8" }]
-  ]
+  "plugins": [["@bundle-validator/test_plugin__file_name_length_checker", { "maxLength": "8" }]]
 }

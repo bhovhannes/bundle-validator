@@ -1,0 +1,7 @@
+{
+  "name": "@bundle-validator/test__tap-report",
+  "private": true,
+  "devDependencies": {
+    "@bundle-validator/test_plugin__file_name_length_checker": "workspace:*"
+  }
+}
