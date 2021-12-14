@@ -465,8 +465,6 @@ __metadata:
     "@jest/globals": 27.4.2
     jest: 27.4.3
     xbytes: 1.7.0
-  peerDependencies:
-    "@bundle-validator/cli": ^1.0.0
   languageName: unknown
   linkType: soft
 

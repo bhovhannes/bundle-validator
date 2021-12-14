@@ -26,8 +26,5 @@
   },
   "dependencies": {
     "xbytes": "1.7.0"
-  },
-  "peerDependencies": {
-    "@bundle-validator/cli": "^1.0.1"
   }
 }
