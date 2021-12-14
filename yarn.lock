@@ -439,7 +439,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@bundle-validator/cli@1.0.3, @bundle-validator/cli@workspace:packages/cli":
+"@bundle-validator/cli@workspace:packages/cli":
   version: 0.0.0-use.local
   resolution: "@bundle-validator/cli@workspace:packages/cli"
   dependencies:
@@ -462,10 +462,11 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@bundle-validator/plugin-bundle-size@workspace:packages/plugin-bundle-size"
   dependencies:
-    "@bundle-validator/cli": 1.0.3
     "@jest/globals": 27.4.2
     jest: 27.4.3
     xbytes: 1.7.0
+  peerDependencies:
+    "@bundle-validator/cli": ^1.0.0
   languageName: unknown
   linkType: soft
 

@@ -36,6 +36,7 @@
     "format": "turbo run format"
   },
   "turbo": {
+    "npmClient": "yarn",
     "baseBranch": "origin/main",
     "pipeline": {
       "test": {

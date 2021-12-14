@@ -1,13 +1,10 @@
 {
   "name": "@bundle-validator/cli",
-  "version": "1.0.4",
+  "version": "1.0.0",
   "description": "A tool for validating minified bundle content",
   "main": "./src/lib.js",
   "bin": {
     "bv": "./src/main.js"
-  },
-  "publishConfig": {
-    "registry": "http://localhost:4873"
   },
   "scripts": {
     "test": "jest -c ./test/jest.config.js",

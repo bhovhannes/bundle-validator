@@ -27,7 +27,7 @@ async function runPlugins(files, config) {
   const plugins = loadPlugins(config)
 
   const mocha = new Mocha({
-    timeout: 300000,
+    timeout: 200000,
     reporter: config.reporter || 'spec',
     reporterOptions: config.reporterOptions || {}
   })
