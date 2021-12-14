@@ -6,6 +6,10 @@
   "bin": {
     "bv": "./src/main.js"
   },
+  "files": [
+    "src",
+    "README.md"
+  ],
   "scripts": {
     "test": "jest -c ./test/jest.config.js",
     "format": "prettier --write '**/*.{ts,tsx,js,jsx,css,md,yml}'"
