@@ -1,6 +1,6 @@
 {
   "name": "@bundle-validator/plugin-bundle-content",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "description": "A plugin for bundle-validator tool",
   "main": "./src/index.js",
   "files": [
