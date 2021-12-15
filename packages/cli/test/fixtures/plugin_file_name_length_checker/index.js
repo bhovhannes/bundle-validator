@@ -15,7 +15,7 @@ function run(executionContext, pluginOptions) {
 }
 
 function title(pluginOptions) {
-  return `File name length should be less than ${pluginOptions.maxLength}`
+  return `File name length should be less than ${pluginOptions.maxLength}!`
 }
 
 module.exports = {

@@ -1,0 +1,31 @@
+{
+  "name": "@bundle-validator/plugin-bundle-content",
+  "version": "0.0.1",
+  "description": "A plugin for bundle-validator tool",
+  "main": "./src/index.js",
+  "files": [
+    "src",
+    "README.md"
+  ],
+  "scripts": {
+    "test": "jest -c ./jest.config.js",
+    "format": "prettier --write '**/*.{ts,tsx,js,jsx,css,md,yml}'"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bhovhannes/bundle-validator.git"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/bhovhannes/bundle-validator/issues"
+  },
+  "homepage": "https://github.com/bhovhannes/bundle-validator/tree/main/packages/plugin-bundle-content#readme",
+  "devDependencies": {
+    "@jest/globals": "27.4.2",
+    "jest": "27.4.3",
+    "pkg-dir": "5.0.0"
+  },
+  "dependencies": {
+    "@swc/core": "~1.2.120"
+  }
+}
