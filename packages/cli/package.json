@@ -1,6 +1,6 @@
 {
   "name": "@bundle-validator/cli",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "A tool for validating minified bundle content",
   "main": "./src/lib.js",
   "bin": {
