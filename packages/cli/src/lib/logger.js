@@ -1,4 +1,4 @@
-const { inspect } = require('util')
+const { inspect } = require('node:util')
 const logger = require('loglevel')
 const { green, red, yellow } = require('kleur')
 

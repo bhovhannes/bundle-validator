@@ -1,4 +1,4 @@
-const { basename } = require('path')
+const { basename } = require('node:path')
 
 function run(executionContext, pluginOptions) {
   const fileName = basename(executionContext.filePath)

@@ -1,5 +1,5 @@
+const fs = require('node:fs')
 const xbytes = require('xbytes')
-const fs = require('fs')
 
 function run(executionContext, pluginOptions) {
   let testStatus = 'fail'
@@ -22,7 +22,7 @@ function run(executionContext, pluginOptions) {
         'File size ' +
         xbytes(fileSize, { prefixIndex: parsedOption.prefixIndex }) +
         ' is ' +
-        (testStatus == 'pass' ? 'less than or equal to' : 'greater than') +
+        (testStatus === 'pass' ? 'less than or equal to' : 'greater than') +
         ' max size ' +
         xbytes(maxSizeInBytes, { prefixIndex: parsedOption.prefixIndex })
     } else {

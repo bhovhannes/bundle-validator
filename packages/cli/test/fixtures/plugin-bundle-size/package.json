@@ -2,6 +2,7 @@
   "name": "@bundle-validator/test__bundle-size",
   "private": true,
   "devDependencies": {
-    "@bundle-validator/plugin-bundle-size": "*"
+    "@bundle-validator/cli": "workspace:*",
+    "@bundle-validator/plugin-bundle-size": "workspace:*"
   }
 }

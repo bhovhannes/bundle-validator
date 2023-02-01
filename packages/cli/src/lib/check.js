@@ -3,27 +3,23 @@ const { cosmiconfig } = require('cosmiconfig')
 const Ajv = require('ajv').default
 const { logger } = require('./logger.js')
 const { LoggedError } = require('./LoggedError.js')
-const {
-  configSchemaInvalid,
-  cannotLoadConfigFile,
-  cannotFindConfigFile,
-  cannotLoadPlugin
-} = require('./errors.js')
-const { runPlugins } = require('./runPlugins.js')
+const { configSchemaInvalid, cannotLoadConfigFile, cannotFindConfigFile } = require('./errors.js')
+const { runPlugins, loadPlugins } = require('./runPlugins.js')
 
 async function check(args) {
   const { pattern, configFilePath } = args
   let files = await listFilesMatchPattern(pattern)
   logger.debug('List of files that match pattern:\n' + files.join('\r\n'))
 
-  const { config } = await loadConfig(configFilePath)
+  const { config, filepath } = await loadConfig(configFilePath)
   logger.debug('Loaded config:', config)
 
   await validateConfig(config)
   normalizeConfig(config)
   logger.debug('Effective config:', config)
 
-  await runPlugins(files, config)
+  const plugins = loadPlugins(config, filepath)
+  await runPlugins(plugins, files, config)
 }
 
 async function loadConfig(configFilePath) {
