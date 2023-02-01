@@ -3,7 +3,6 @@
   "version": "0.0.0",
   "private": true,
   "description": "A monorepo for packages related to validating minified bundle content",
-  "packageManager": "yarn@3.1.1",
   "workspaces": [
     "packages/*",
     "packages/cli/test/fixtures/*"
@@ -23,31 +22,19 @@
   },
   "homepage": "https://github.com/bhovhannes/bundle-validator#readme",
   "devDependencies": {
-    "@arkweid/lefthook": "0.7.6",
     "@bhovhannes/shared-config": "0.0.1",
-    "@changesets/cli": "^2.18.1",
-    "prettier": "2.3.2",
-    "turbo": "^1.0.6"
+    "@changesets/cli": "^2.26.0",
+    "@evilmartians/lefthook": "1.2.8",
+    "prettier": "2.8.3",
+    "rimraf": "^4.1.2",
+    "turbo": "^1.7.1"
   },
   "scripts": {
-    "version": "changeset version",
-    "publish": "changeset publish",
+    "clean": "rimraf node_modules",
+    "version": "changeset version && pnpm install",
+    "publish": "pnpm publish -r",
+    "prune": "turbo run clean",
     "test": "turbo run test",
     "format": "turbo run format"
-  },
-  "turbo": {
-    "npmClient": "yarn",
-    "baseBranch": "origin/main",
-    "pipeline": {
-      "test": {
-        "dependsOn": [
-          "^test"
-        ],
-        "outputs": []
-      },
-      "format": {
-        "outputs": []
-      }
-    }
   }
 }

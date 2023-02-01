@@ -4,9 +4,12 @@ const { logger } = require('./logger.js')
 const { LoggedError } = require('./LoggedError.js')
 const { cannotLoadPlugin } = require('./errors.js')
 
-function loadPlugins(normalizedConfig) {
+const { createRequire } = require('node:module')
+
+function loadPlugins(normalizedConfig, configFilePath) {
   return normalizedConfig.plugins.map(([pluginName, pluginOptions]) => {
     try {
+      const require = createRequire(configFilePath)
       const plugin = require(pluginName)
       return {
         plugin,
@@ -23,9 +26,7 @@ function pluginLogger(level, ...args) {
   return logger[level](...args)
 }
 
-async function runPlugins(files, config) {
-  const plugins = loadPlugins(config)
-
+async function runPlugins(plugins, files, config) {
   const mocha = new Mocha({
     timeout: 200000,
     reporter: config.reporter || 'spec',
@@ -69,5 +70,6 @@ async function runPlugins(files, config) {
 }
 
 module.exports = {
+  loadPlugins,
   runPlugins
 }

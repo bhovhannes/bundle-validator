@@ -11,6 +11,7 @@
     "README.md"
   ],
   "scripts": {
+    "clean": "rimraf .turbo node_modules",
     "test": "jest -c ./test/jest.config.js",
     "format": "prettier --write '**/*.{ts,tsx,js,jsx,css,md,yml}'"
   },

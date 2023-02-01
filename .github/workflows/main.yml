@@ -5,34 +5,46 @@ on:
       - main
   pull_request:
 
+env:
+  CI: true
+
 jobs:
   main:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-20.04
     if: ${{ github.event_name != 'pull_request' }}
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
         name: Checkout [main]
         with:
           fetch-depth: 0
-      - name: Setup Node.js 14.x
-        uses: actions/setup-node@v2
+      - uses: pnpm/action-setup@v2
         with:
-          node-version: '14'
-          cache: 'yarn'
-      - run: yarn
-      - run: yarn test
+          version: 7
+      - name: Setup Node.js 16.x
+        uses: actions/setup-node@v3
+        with:
+          node-version: 16
+          cache: 'pnpm'
+      - name: Install Dependencies
+        run: pnpm install
+      - run: pnpm test
   pr:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-20.04
     if: ${{ github.event_name == 'pull_request' }}
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
         with:
           ref: ${{ github.event.pull_request.head.ref }}
           fetch-depth: 0
-      - name: Setup Node.js 14.x
+      - uses: pnpm/action-setup@v2
+        with:
+          version: 7
+      - name: Setup Node.js 16.x
         uses: actions/setup-node@v2
         with:
-          node-version: '14'
-          cache: 'yarn'
-      - run: yarn
-      - run: yarn test
+          node-version: '16'
+      - name: setup pnpm config
+        run: pnpm config set store-dir $PNPM_CACHE_FOLDER
+      - name: Install Dependencies
+        run: pnpm install
+      - run: pnpm test

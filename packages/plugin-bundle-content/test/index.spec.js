@@ -1,6 +1,6 @@
+const { join } = require('node:path')
 const { describe, it, expect } = require('@jest/globals')
 const pkgDir = require('pkg-dir')
-const { join } = require('path')
 const plugin = require('../src/index.js')
 
 const packageRootDirectory = pkgDir.sync(__dirname)
@@ -9,7 +9,7 @@ describe(`plugin`, function () {
   function getExecutionContent(fixtureFileName) {
     return {
       filePath: join(packageRootDirectory, 'test', 'fixtures', fixtureFileName),
-      log: jest.fn()
+      log: () => {}
     }
   }
 

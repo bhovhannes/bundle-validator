@@ -1,7 +1,7 @@
+const { execFile } = require('node:child_process')
+const { join } = require('node:path')
 const { describe, it, expect } = require('@jest/globals')
-const { join } = require('path')
 const pkgDir = require('pkg-dir')
-const { execFile } = require('child_process')
 
 const packageRootDirectory = pkgDir.sync(__dirname)
 
@@ -31,6 +31,7 @@ describe(`cli`, function () {
         '--config',
         join(packageRootDirectory, 'test', 'fixtures', 'plugin-bundle-size', '.bvrc.json')
       ])
+      expect(result.stderr).not.toMatch(/E\d\d\d/)
       expect(result.stdout).not.toMatch(/E\d\d\d/)
       expect(result.exitCode).toEqual(0)
     })
